@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Meta tag Keywords -->
+
+    <!-- css files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bigvideo.css">
+    <!-- Video-CSS -->
+    <link rel="stylesheet" href="css/jquery.countdown.css" />
+    <!-- Countdown-CSS -->
+    <!-- css files -->
+
+    <!-- Google fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Rammetto+One&amp;subset=latin-ext" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext" rel="stylesheet">
+    <!-- //Google fonts -->
+
+</head>
+
+<body>
+
+    <!-- main -->
+
+    <!-- BigVideo Dependencies -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/video.js"></script>
+    <!-- BigVideo -->
+    <script src="js/bigvideo.js"></script>
+    <!-- Demo -->
+
+    <div class="center-container">
+        <div class="w3ls_banner_info">
+            <div class="toggle-btn">
+                <label><input type="checkbox" checked="" id="video-toggle"> Video Play</label>
+            </div>
+            <div class="clear"></div>
+            <h1>时至今日，中国社会主义生命已有</h1>
+            <p>Up to now, the life of socialism in China has existed</p>
+
+            <!--timer-->
+            <div class="examples">
+                <div class="simply-countdown-losange" id="simply-countdown-losange"></div>
+                <div class="clear"></div>
+            </div>
+            <!--//timer-->
+
+            <div class="word">
+                <p>从历史发展规律来看，制度与其他一切社会运行机制一样，具有相应的生命周期。</p>
+                <p>“社会主义新时代”标志着我国进入社会主义发展的新阶段。</p>
+
+            </div>
+        </div>
+        <!-- //main -->
+
+        <!--scripts-->
+        <!-- Countdown-Timer-JavaScript -->
+        <script src="js/simplyCountdown.js"></script>
+        <script>
+            var d = new Date(new Date().getTime() + 948 * 120 * 120 * 2000);
+
+            // default example
+            simplyCountdown('.simply-countdown-one', {
+                year: d.getFullYear(),
+                month: d.getMonth() + 1,
+                day: d.getDate()
+            });
+
+            // inline example
+            simplyCountdown('.simply-countdown-inline', {
+                year: d.getFullYear(),
+                month: d.getMonth() + 1,
+                day: d.getDate(),
+                inline: true
+            });
+
+            //jQuery example
+            $('#simply-countdown-losange').simplyCountdown({
+                year: d.getFullYear(),
+                month: d.getMonth() + 1,
+                day: d.getDate(),
+                enableUtc: false
+            });
+        </script>
+        <!-- //Countdown-Timer-JavaScript -->
+        <!--//scripts-->
+
+        <script>
+            var BV;
+            $(function() {
+
+                // initialize BigVideo
+                BV = new $.BigVideo();
+                BV.init();
+                BV.show('video/natal_red_gradient.mp4', {
+                    ambient: true
+                });
+
+                // Playlist button click starts video
+                $('.playlist-btn').on('click', function(e) {
+                    e.preventDefault();
+                    BV.show($(this).attr('href'));
+                })
+
+                // Video Play/Pause toggle
+                $('#video-toggle').on('click', function(e) {
+                    if (this.checked) BV.getPlayer().play();
+                    else BV.getPlayer().pause();
+                })
+
+                // set up navigation
+                $('.nav-link').on('click', function(e) {
+                    e.preventDefault();
+                    scrollToSection($(this).attr('href'));
+                })
+
+                function scrollToSection(id) {
+                    $('body,html').animate({
+                        scrollTop: $(id).offset().top - 50
+                    }, 400);
+                }
+            });
+        </script>
+
+</body>
+
+</html>
