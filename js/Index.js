@@ -40,13 +40,13 @@ function LoadMain9() {
             showDelay: 0,
             formatter: function(params) {
                 if (params.value.length > 1) {
-                    return params.seriesName + ' :<br/>' +
+                    return params.seriesName + '<br>' +
                         params.value[0] + 'Log（人口）/万人 ' +
                         params.value[1] + 'Log(人均GDP)/亿美元 ';
                 } else {
-                    return params.seriesName + ' :<br/>' +
-                        params.name + ' : ' +
-                        params.value + 'kg ';
+                    return params.seriesName + '<br>' +
+                        params.name + '：' +
+                        params.value + '亿美元';
                 }
             },
             axisPointer: {
@@ -140,16 +140,16 @@ function LoadMain9() {
             markPoint: {
                 data: [{
                     type: 'max',
-                    name: '最大值'
+                    name: '（前）社会主义国家最大值'
                 }, {
                     type: 'min',
-                    name: '最小值'
+                    name: '（前）社会主义国家最小值'
                 }]
             },
             markLine: {
                 data: [{
                     type: 'average',
-                    name: '平均值'
+                    name: '（前）社会主义国家平均值'
                 }]
             }
         }, {
@@ -308,16 +308,16 @@ function LoadMain9() {
             markPoint: {
                 data: [{
                     type: 'max',
-                    name: '最大值'
+                    name: '资本主义国家最大值'
                 }, {
                     type: 'min',
-                    name: '最小值'
+                    name: '资本主义国家最小值'
                 }]
             },
             markLine: {
                 data: [{
                     type: 'average',
-                    name: '平均值'
+                    name: '资本主义国家平均值'
                 }]
             }
         }]
